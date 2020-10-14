@@ -147,6 +147,7 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="107dp"
         android:backgroundTint="@android:color/black"
+        android:onClick="onClickBotaoPi"
         android:text="π"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,8 +155,8 @@
 
     <Button
         android:id="@+id/btn_limpa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="96dp"
         android:backgroundTint="@android:color/black"
@@ -165,18 +166,6 @@
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_raiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="96dp"
-        android:backgroundTint="@android:color/black"
-        android:text="√"
-        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -252,7 +241,7 @@
         android:layout_marginEnd="12dp"
         android:backgroundTint="#E6000000"
         android:onClick="onClickDivisao"
-        android:text="/"
+        android:text="÷"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"

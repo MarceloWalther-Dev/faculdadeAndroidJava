@@ -11,12 +11,16 @@ import com.example.calculadora.R;
 import com.example.calculadora.model.Botoes;
 import com.example.calculadora.model.Calculadora;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView display;
     private String primeiroNumero = "";
     private String segundoNumero = "";
     private String operacao = "";
+
+    DecimalFormat df = new DecimalFormat("0.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,12 +82,16 @@ public class MainActivity extends AppCompatActivity {
         atualizarDisplay("0");
     }
 
+    public void onClickBotaoPi(View v){
+        atualizaNumeroDigitado("3.14");
+        atualizarDisplay("3.14");
+    }
+
 
     public void  onClickSoma(View v){
         operacao = "+";
         atualizarDisplay("+");
     }
-
 
     public void  onClickMulti(View v){
         operacao = "X";
@@ -95,26 +103,30 @@ public class MainActivity extends AppCompatActivity {
         atualizarDisplay("÷");
     }
 
+    public void onClickRaiz(View v){
+        operacao = "√";
+        atualizarDisplay("√");
+    }
+
 
 
     public void onClickIgual(View v) {
         if (!primeiroNumero.isEmpty() && !segundoNumero.isEmpty()) {
-            int numero1 = Integer.parseInt(primeiroNumero);
-            int numero2 = Integer.parseInt(segundoNumero);
+            float numero1 = Float.parseFloat(primeiroNumero);
+            float numero2 = Float.parseFloat(segundoNumero);
 
             if (operacao.equals("+")) {
-                int resultado = numero1 + numero2;
-                display.setText(String.valueOf(resultado));
+                float resultado = numero1 + numero2;
+                display.setText(df.format(resultado));
             } else if (operacao.equals("X")) {
-                int resultado = numero1 * numero2;
-                display.setText(String.valueOf(resultado));
+                float resultado = numero1 * numero2;
+                display.setText(df.format(resultado));
             } else if (operacao.equals("÷") && numero2 != 0) {
-                int resultado = numero1 / numero2;
-                display.setText(String.valueOf(resultado));
-                Toast.makeText(MainActivity.this, "O numero 1 é  " + numero1 + "o numero 2 é " + numero2, Toast.LENGTH_LONG).show();
+                float resultado = numero1 / numero2;
+                display.setText(df.format(resultado));
             } else if (operacao.equals("÷") && numero2 == 0) {
-                Toast.makeText(MainActivity.this, "Impossivel dividir por 0" + numero2, Toast.LENGTH_LONG).show();
-
+                limps();
+                Toast.makeText(MainActivity.this, "Impossivel dividir por 0" , Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -137,9 +149,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void limpaDisplay(View v){
+        limps();
+    }
+
+    public void limps(){
         primeiroNumero = "";
         segundoNumero = "";
-        TextView display = findViewById(R.id.display);
+        operacao = "";
         display.setText("");
 
     }
