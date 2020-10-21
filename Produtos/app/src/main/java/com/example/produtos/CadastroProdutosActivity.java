@@ -13,6 +13,7 @@ public class CadastroProdutosActivity extends AppCompatActivity {
 
     private final int RESULT_CODE_NOVO_PRODUTO = 10;
     private final int RESULT_CODE_PRODUTO_EDITADO = 11;
+    private final int RESULT_CODE_PRODUTO_EXCLUIDO = 21;
 
     private boolean edicao = false;
     private int id = 0;
@@ -70,14 +71,11 @@ public class CadastroProdutosActivity extends AppCompatActivity {
     }
 
     public void onClickDeletar(View v){
-        Intent intent = getIntent();
-        if(intent != null && intent.getExtras() != null && intent.getExtras().get("produtoEdicao") != null){
-            Produto produto = (Produto) intent.getExtras().get("produtoEdicao");
-            EditText editTextNome = findViewById(R.id.editTextTextNome);
-            EditText editTextValor = findViewById(R.id.editText_valor);
-            editTextNome.setText("");
-            editTextValor.setText("");
-            edicao = true;
+       if(edicao){
+           Intent intent = new Intent();
+           intent.putExtra("produtoExcluido", id);
+           setResult(RESULT_CODE_PRODUTO_EXCLUIDO, intent);
+           finish();
         }
     }
 }

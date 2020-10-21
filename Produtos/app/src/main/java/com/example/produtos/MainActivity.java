@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private final int RESULT_CODE_NOVO_PRODUTO = 10;
     private final int REQUEST_CODE_EDITAR_PRODUTO = 2;
     private final int RESULT_CODE_PRODUTO_EDITADO = 11;
+    private final int RESULT_CODE_PRODUTO_EXCLUIDO = 21;
 
     private ListView listViewProdutos;
     private ArrayAdapter<Produto> adapterProdutos;
@@ -85,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
                 if(produto.getId() == produtoEditado.getId()){
                     adapterProdutos.remove(produto);
                     adapterProdutos.insert(produtoEditado, i);
+                    break;
+                }
+            }
+        }else if(requestCode == REQUEST_CODE_EDITAR_PRODUTO && resultCode == RESULT_CODE_PRODUTO_EXCLUIDO){
+            int idExcluir = data.getExtras().getInt("produtoExcluido");
+            for (int i = 0; i< adapterProdutos.getCount(); i++){
+                Produto produto = adapterProdutos.getItem(i);
+                if(produto.getId() == idExcluir){
+                    adapterProdutos.remove(produto);
                     break;
                 }
             }
