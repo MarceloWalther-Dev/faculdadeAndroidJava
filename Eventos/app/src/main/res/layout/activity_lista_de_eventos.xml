@@ -16,6 +16,7 @@
         android:layout_marginTop="530dp"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="onClickAdicionarEvento"
         android:src="@drawable/ic_action_novo_evento"
         app:backgroundTint="#EC2A70" />
 

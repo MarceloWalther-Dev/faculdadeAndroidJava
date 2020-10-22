@@ -26,21 +26,29 @@
         android:hint="Local do Evento"
         android:layout_height="wrap_content"/>
 
-    <Button android:id="@+id/activity_cadastro_evento_btn_salvar"
+    <Button
+        android:id="@+id/activity_cadastro_evento_btn_salvar"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Salvar"
-        android:layout_height="wrap_content"/>
-    <Button android:id="@+id/activity_cadastro_evento_btn_editar"
+        android:onClick="onClickSalvar"
+        android:text="Salvar" />
+
+    <Button
+        android:id="@+id/activity_cadastro_evento_btn_editar"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Editar"
-        android:layout_height="wrap_content"/>
-    <Button android:id="@+id/activity_cadastro_evento_btn_excluir"
+        android:onClick="onClickDeletarEvento"
+        android:text="Deletar" />
+
+    <Button
+        android:id="@+id/activity_cadastro_evento_btn_excluir"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Deletar"
-        android:layout_height="wrap_content"/>
+        android:onClick="onClickVoltar"
+        android:text="Voltar" />
 
 
 </LinearLayout>
