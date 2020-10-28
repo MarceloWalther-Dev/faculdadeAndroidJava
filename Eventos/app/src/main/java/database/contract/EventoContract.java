@@ -2,7 +2,7 @@ package database.contract;
 
 import database.entity.EventoEntity;
 
-public class EventoContract {
+public final class EventoContract {
 
     private EventoContract() {};
 

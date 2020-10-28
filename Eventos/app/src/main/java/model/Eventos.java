@@ -8,9 +8,9 @@ public class Eventos implements Serializable {
     private int id;
     private String nomeDoEvento;
     private String dataDoEvento;
-    private String localDoEvento;
+    private LocalEvento localDoEvento;
 
-    public Eventos(int id, String nomeDoEvento, String dataDoEvento, String localDoEvento) {
+    public Eventos(int id, String nomeDoEvento, String dataDoEvento, LocalEvento localDoEvento) {
         this.id = id;
         this.nomeDoEvento = nomeDoEvento;
         this.dataDoEvento = dataDoEvento;
@@ -41,11 +41,11 @@ public class Eventos implements Serializable {
         this.dataDoEvento = dataDoEvento;
     }
 
-    public String getLocalDoEvento() {
+    public LocalEvento getLocalDoEvento() {
         return localDoEvento;
     }
 
-    public void setLocalDoEvento(String localDoEvento) {
+    public void setLocalDoEvento(LocalEvento localDoEvento) {
         this.localDoEvento = localDoEvento;
     }
 

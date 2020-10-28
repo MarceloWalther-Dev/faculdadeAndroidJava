@@ -2,6 +2,8 @@ package database.entity;
 
 import android.provider.BaseColumns;
 
+import model.LocalEvento;
+
 public class EventoEntity  implements BaseColumns {
 
     private EventoEntity(){}
@@ -10,4 +12,5 @@ public class EventoEntity  implements BaseColumns {
     public static final String COLUMN_NAME_NOME = "nome";
     public static final String COLUMN_NAME_DATA = "data";
     public static final String COLUMN_NAME_LOCAL = "local";
+    public static final String COLUMN_NAME_ID_LOCAL = "idLocal";
 }

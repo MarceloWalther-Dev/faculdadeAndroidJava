@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import database.entity.EventoEntity;
+import database.entity.LocalEntity;
 import model.Eventos;
+import model.LocalEvento;
 
 public class EventoDAO {
 
@@ -26,7 +28,8 @@ public class EventoDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put(EventoEntity.COLUMN_NAME_NOME, eventos.getNomeDoEvento());
         contentValues.put(EventoEntity.COLUMN_NAME_DATA, eventos.getDataDoEvento());
-        contentValues.put(EventoEntity.COLUMN_NAME_LOCAL, eventos.getLocalDoEvento());
+        /*contentValues.put(EventoEntity.COLUMN_NAME_LOCAL, eventos.getLocalDoEvento());*/
+        contentValues.put(EventoEntity.COLUMN_NAME_ID_LOCAL, eventos.getLocalDoEvento().getId());
 
         if(eventos.getId() > 0){
             return dbGateway.getDatabase().update(EventoEntity.TABLE_NAME, contentValues, EventoEntity._ID + "=?" , new String[]{String.valueOf(eventos.getId())}) > 0;
@@ -43,8 +46,14 @@ public class EventoDAO {
             int id = cursor.getInt(cursor.getColumnIndex(EventoEntity._ID));
             String nome = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_NOME));
             String data = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_DATA));
-            String local = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_LOCAL));
-            eventos.add(new Eventos(id,nome,data,local));
+            /*String local = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_LOCAL));*/
+            int idLocal = cursor.getInt(cursor.getColumnIndex(EventoEntity._ID));
+            String nomeClub = cursor.getString(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_NOME));
+            String bairro = cursor.getString(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_DISTRICT));
+            String city = cursor.getString(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_CITY));
+            int capacidadePublico = cursor.getInt(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_CAPACIDADE_PUBLICO));
+            LocalEvento localEvento = new LocalEvento(idLocal,nomeClub,bairro,city,capacidadePublico);
+            eventos.add(new Eventos(id,nome,data,localEvento));
         }
         cursor.close();
         return eventos;

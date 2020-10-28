@@ -26,6 +26,17 @@
         android:hint="Local do Evento"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Locais" />
+
+    <Spinner
+        android:id="@+id/spinner_locais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/activity_cadastro_evento_btn_salvar"
         android:layout_width="match_parent"
