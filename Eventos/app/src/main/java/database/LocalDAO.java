@@ -9,6 +9,7 @@ import java.util.List;
 
 import database.entity.EventoEntity;
 import database.entity.LocalEntity;
+import model.Eventos;
 import model.LocalEvento;
 
 public class LocalDAO {
@@ -33,6 +34,17 @@ public class LocalDAO {
                     "=?" , new String[]{String.valueOf(localEvento.getId())}) > 0;
         }
         return dbGateway.getDatabase().insert(LocalEntity.TABLE_NAME, null , contentValues) > 0;
+    }
+
+    public boolean excluir(int id, List<Eventos> eventos) {
+        for (int posicao = 0; posicao < eventos.size(); posicao++) {
+            if (eventos.get(posicao).getLocalDoEvento().getId() == id) {
+                return false;
+            }
+        }
+        return dbGateway.getDatabase().delete(LocalEntity.TABLE_NAME,
+                LocalEntity._ID + "=?",
+                new String[]{String.valueOf(id)}) > 0;
     }
 
     public List<LocalEvento> listar(){

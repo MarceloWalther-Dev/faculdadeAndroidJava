@@ -10,7 +10,11 @@ import android.widget.Toast;
 
 import com.example.eventos.R;
 
+import java.util.List;
+
+import database.EventoDAO;
 import database.LocalDAO;
+import model.Eventos;
 import model.LocalEvento;
 
 public class CadastroDeLocaisActivity extends AppCompatActivity {
@@ -20,6 +24,8 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
     private EditText editTextBairro;
     private EditText editTextCity;
     private EditText editTextCapacidadePublico;
+    private EventoDAO eventoDao = new EventoDAO(getBaseContext());
+    private List<Eventos> eventos = eventoDao.listar();
 
 
 
@@ -32,12 +38,12 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
         editTextBairro = findViewById(R.id.editTextText_bairro);
         editTextCity = findViewById(R.id.editTextText_city);
         editTextCapacidadePublico = findViewById(R.id.editText_capacidadePublico);
-        carregarCategoria();
+        carregarLocal();
     }
 
-    public void carregarCategoria(){
+    public void carregarLocal(){
         Intent intent = getIntent();
-        if(intent != null && intent.getExtras() != null && intent.getExtras().get("categoriaEdicao") != null){
+        if(intent != null && intent.getExtras() != null && intent.getExtras().get("localEdicao") != null){
             LocalEvento localEvento = (LocalEvento) intent.getExtras().get("localEdicao");
             editTextClubName.setText(localEvento.getNome());
             editTextBairro.setText(localEvento.getBairro());
@@ -67,6 +73,17 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
                     , "Erro ao salvar", Toast.LENGTH_LONG).show();
         }
 
+    }
+
+
+    public void onClickExcluir(View v) {
+        LocalDAO localDao = new LocalDAO(getBaseContext());
+        boolean excluiu = localDao.excluir(id, eventos);
+        if (excluiu) {
+            finish();
+        } else {
+            Toast.makeText(CadastroDeLocaisActivity.this, "Erro ao excluir.", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

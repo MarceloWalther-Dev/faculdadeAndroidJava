@@ -7,11 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import database.contract.EventoContract;
+import database.contract.LocalContract;
 
 public class DatabaseDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "db.eventos";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 8;
 
 
     public DatabaseDBHelper(@Nullable Context context){
@@ -20,12 +21,16 @@ public class DatabaseDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        db.execSQL(LocalContract.criarTabela());
         db.execSQL(EventoContract.criarTabela());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(EventoContract.removerTabela());
+        db.execSQL(LocalContract.removerTabela());
+        db.execSQL(LocalContract.criarTabela());
         db.execSQL(EventoContract.criarTabela());
     }
 }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.eventos.R;
 
 import database.EventoDAO;
+import database.LocalDAO;
 import model.Eventos;
 import model.LocalEvento;
 
@@ -35,6 +36,7 @@ public class CadastroDeEventosActivity extends AppCompatActivity {
         nomeDoEvento = findViewById(R.id.activity_cadastro_evento_nome_do_evento);
         dataDoEvento = findViewById(R.id.activity_cadastro_evento_data_do_evento);
         localDoEvento = findViewById(R.id.activity_cadastro_evento_local_do_evento);
+        carregarLocal();
         carregarEvento();
     }
 
@@ -50,6 +52,12 @@ public class CadastroDeEventosActivity extends AppCompatActivity {
             spinnerLocais.setSelection(posicaoLocais);
             id = evento.getId();
         }
+    }
+
+    private void carregarLocal(){
+        LocalDAO localDAO = new LocalDAO(getBaseContext());
+        localAdapter = new ArrayAdapter<LocalEvento>(CadastroDeEventosActivity.this, android.R.layout.simple_spinner_item, localDAO.listar());
+        spinnerLocais.setAdapter(localAdapter);
     }
 
     private int obterPosicaoLocais(LocalEvento localEvento){
@@ -72,8 +80,6 @@ public class CadastroDeEventosActivity extends AppCompatActivity {
         String local = localDoEvento.getText().toString();
         int posicaoLocais = spinnerLocais.getSelectedItemPosition();
         LocalEvento localEvento = (LocalEvento) localAdapter.getItem(posicaoLocais);
-
-
 
         if (nome.length() > 0 && nome != "" && date.length() == 9 && date != "" && local.length() > 3 && local != "") {
 

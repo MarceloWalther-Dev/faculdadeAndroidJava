@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CadastroDeEventos"></activity>
         <activity android:name=".ui.activity.ListaDeLocaisActivity" />
         <activity android:name=".ui.activity.CadastroDeLocaisActivity" />
         <activity android:name=".ui.activity.CadastroDeEventosActivity" />

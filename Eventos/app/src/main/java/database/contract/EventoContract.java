@@ -1,6 +1,7 @@
 package database.contract;
 
 import database.entity.EventoEntity;
+import database.entity.LocalEntity;
 
 public final class EventoContract {
 
@@ -12,7 +13,9 @@ public final class EventoContract {
                 EventoEntity._ID + " INTEGER PRIMARY KEY, " +
                 EventoEntity.COLUMN_NAME_NOME + " TEXT," +
                 EventoEntity.COLUMN_NAME_DATA + " TEXT," +
-                EventoEntity.COLUMN_NAME_LOCAL + " TEXT)";
+                EventoEntity.COLUMN_NAME_ID_LOCAL + " INTEGER, " +
+                "FOREIGN KEY (" + EventoEntity.COLUMN_NAME_ID_LOCAL + ") REFERENCES " + LocalEntity.TABLE_NAME +
+                "(" + LocalEntity._ID + "))";
     }
 
     public static final String removerTabela(){

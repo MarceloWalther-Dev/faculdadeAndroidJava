@@ -14,7 +14,7 @@ public final class LocalContract {
                 LocalEntity.COLUMN_NAME_NOME + " TEXT, " +
                 LocalEntity.COLUMN_NAME_DISTRICT + " TEXT, " +
                 LocalEntity.COLUMN_NAME_CITY + " TEXT, " +
-                LocalEntity.COLUMN_NAME_CAPACIDADE_PUBLICO + " INT)";
+                LocalEntity.COLUMN_NAME_CAPACIDADE_PUBLICO + " INTEGER)";
     }
 
 

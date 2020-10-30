@@ -15,7 +15,8 @@ import model.LocalEvento;
 public class EventoDAO {
 
 
-    private final String SQL_LISTAR_TODOS = "SELECT eventos._id, nome, data, idLocal, nomeClub, bairro,city, capacidadePublico FROM " + EventoEntity.TABLE_NAME + " INNER JOIN " + LocalEntity.TABLE_NAME +
+    private final String SQL_LISTAR_TODOS = "SELECT evento._id, nomeDoEvento , dataDoEvento, idLocal, nomeClub, bairro,city, capacidadePublico FROM " +
+            EventoEntity.TABLE_NAME + " INNER JOIN " + LocalEntity.TABLE_NAME +
             " ON " + EventoEntity.COLUMN_NAME_ID_LOCAL + " = " + LocalEntity.TABLE_NAME + "." + LocalEntity._ID;
 
     private  DBGateway dbGateway;
@@ -30,7 +31,7 @@ public class EventoDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put(EventoEntity.COLUMN_NAME_NOME, eventos.getNomeDoEvento());
         contentValues.put(EventoEntity.COLUMN_NAME_DATA, eventos.getDataDoEvento());
-        /*contentValues.put(EventoEntity.COLUMN_NAME_LOCAL, eventos.getLocalDoEvento());*/
+
         contentValues.put(EventoEntity.COLUMN_NAME_ID_LOCAL, eventos.getLocalDoEvento().getId());
 
         if(eventos.getId() > 0){
@@ -43,13 +44,12 @@ public class EventoDAO {
 
         List<Eventos> eventos = new ArrayList<>();
         Cursor cursor = dbGateway.getDatabase().rawQuery(SQL_LISTAR_TODOS, null);
-        while (cursor.moveToNext()){
 
+        while (cursor.moveToNext()){
             int id = cursor.getInt(cursor.getColumnIndex(EventoEntity._ID));
             String nome = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_NOME));
             String data = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_DATA));
-            /*String local = cursor.getString(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_LOCAL));*/
-            int idLocal = cursor.getInt(cursor.getColumnIndex(EventoEntity._ID));
+            int idLocal = cursor.getInt(cursor.getColumnIndex(EventoEntity.COLUMN_NAME_ID_LOCAL));
             String nomeClub = cursor.getString(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_NOME));
             String bairro = cursor.getString(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_DISTRICT));
             String city = cursor.getString(cursor.getColumnIndex(LocalEntity.COLUMN_NAME_CITY));
