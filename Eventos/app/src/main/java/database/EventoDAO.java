@@ -15,7 +15,9 @@ import model.LocalEvento;
 public class EventoDAO {
 
 
-    private final String SQL_LISTAR_TODOS = "SELECT * FROM " + EventoEntity.TABLE_NAME;
+    private final String SQL_LISTAR_TODOS = "SELECT eventos._id, nome, data, idLocal, nomeClub, bairro,city, capacidadePublico FROM " + EventoEntity.TABLE_NAME + " INNER JOIN " + LocalEntity.TABLE_NAME +
+            " ON " + EventoEntity.COLUMN_NAME_ID_LOCAL + " = " + LocalEntity.TABLE_NAME + "." + LocalEntity._ID;
+
     private  DBGateway dbGateway;
 
     public EventoDAO(Context context){
