@@ -46,7 +46,7 @@ public class ListaEventosActivity extends AppCompatActivity {
     }
 
     public void onClickAdicionarEvento(View v){
-        Intent intent = new Intent(ListaEventosActivity.this, CadastroDeEventosActivity.class);
+        Intent intent = new Intent(ListaEventosActivity.this, CadastroDeLocaisActivity.class);
         startActivity(intent);
     }
 
