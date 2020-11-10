@@ -74,7 +74,7 @@ public class ListaDeLocaisActivity extends AppCompatActivity {
         } else if (item.getTitle() == "Excluir") {
             LocalDAO localDao = new LocalDAO(getBaseContext());
             if (!localDao.excluir(localClicado.getId(), eventos)) {
-                Toast.makeText(ListaDeLocaisActivity.this, "Erro ao excluir. Primeiro remova os eventos ligados a este local", Toast.LENGTH_LONG).show();
+                Toast.makeText(ListaDeLocaisActivity.this, "Erro ao excluir. Remova os eventos ", Toast.LENGTH_LONG).show();
             } else {
                 adapterLocal.remove(localClicado);
             }
@@ -92,13 +92,15 @@ public class ListaDeLocaisActivity extends AppCompatActivity {
     }
 
     public void onClickNovoLocal(View v) {
-        Intent intent = new Intent(ListaDeLocaisActivity.this, CadastroDeLocaisActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(ListaDeLocaisActivity.this, CadastroDeLocaisActivity.class));
     }
 
     public void onClickEventos(View v) {
-        Intent intent = new Intent(ListaDeLocaisActivity.this, MainActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(ListaDeLocaisActivity.this, MainActivity.class));
+        finish();
+    }
+
+    public void onClickVoltar(View v) {
         finish();
     }
 }

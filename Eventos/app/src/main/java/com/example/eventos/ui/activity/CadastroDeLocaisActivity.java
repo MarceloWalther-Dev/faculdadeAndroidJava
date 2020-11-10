@@ -41,11 +41,11 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_de_locais);
-        setTitle("Cadastro de Clubs");
-        editTextClubName = findViewById(R.id.editTextText_local_nome);
-        editTextBairro = findViewById(R.id.editText_local_bairro);
-        editTextCity = findViewById(R.id.editText_local_cidade);
-        editTextCapacidadePublico = findViewById(R.id.editText_local_capacidade);
+        setTitle("Registros de Clubs");
+        editTextClubName = findViewById(R.id.editTextText_local_name);
+        editTextBairro = findViewById(R.id.editText_local_neighborhood);
+        editTextCity = findViewById(R.id.editText_local_city);
+        editTextCapacidadePublico = findViewById(R.id.editText_local_capacidade_de_pessoas);
         carregarLocal();
     }
 
@@ -77,8 +77,7 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
         if (salvou){
             finish();
         }else{
-            Toast.makeText(CadastroDeLocaisActivity.this
-                    , "Erro ao salvar", Toast.LENGTH_LONG).show();
+            Toast.makeText(CadastroDeLocaisActivity.this, "Erro ao salvar", Toast.LENGTH_LONG).show();
         }
 
     }

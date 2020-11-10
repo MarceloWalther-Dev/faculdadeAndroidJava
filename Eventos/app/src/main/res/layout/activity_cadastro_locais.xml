@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.activity.CadastroDeLocaisActivity">
 
@@ -14,7 +14,7 @@
         android:text="Nome" />
 
     <EditText
-        android:id="@+id/editTextText_local_nome"
+        android:id="@+id/editTextText_local_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -28,7 +28,7 @@
         android:text="Bairro" />
 
     <EditText
-        android:id="@+id/editText_local_bairro"
+        android:id="@+id/editText_local_neighborhood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -42,7 +42,7 @@
         android:text="Cidade" />
 
     <EditText
-        android:id="@+id/editText_local_cidade"
+        android:id="@+id/editText_local_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -56,7 +56,7 @@
         android:text="Capacidade" />
 
     <EditText
-        android:id="@+id/editText_local_capacidade"
+        android:id="@+id/editText_local_capacidade_de_pessoas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -66,29 +66,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_local_voltar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:onClick="onClickVoltar"
             android:text="Voltar" />
 
         <Button
             android:id="@+id/btn_excluir_local"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:onClick="onClickExcluir"
             android:text="Excluir" />
 
         <Button
             android:id="@+id/btn_local_salvar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:onClick="onClickSalvar"
             android:text="Salvar" />
     </LinearLayout>

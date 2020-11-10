@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView listViewEventos;
     private ArrayAdapter<Eventos> adapterEventos;
-    private int id = 0;
     private EditText editTextPesquisa;
     private Spinner spinnerCidade;
     private ArrayAdapter<String> adapterCidades;
@@ -42,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Eventos");
-        listViewEventos = findViewById(R.id.list_view_eventos);
-        editTextPesquisa = findViewById(R.id.editText_pesquisa_nome);
-        spinnerCidade = findViewById(R.id.spinner_cidade);
+        setTitle("Event");
+        listViewEventos = findViewById(R.id.list_view_eventos_main);
+        editTextPesquisa = findViewById(R.id.editText_main_name);
+        spinnerCidade = findViewById(R.id.spinner_city);
         editTextPesquisa.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String query = spinnerCidade.getSelectedItem().toString();
-                if (!query.equals("Todas")) {
+                if (!query.equals("All")) {
                     listaQuery.set(1, query);
                 } else {
                     listaQuery.set(1, "");
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         listViewEventos.setAdapter(adapterEventos);
     }
 
-    public void onClickDescendente(View v) {
+    public void onClickDesc(View v) {
         listaQuery.set(2, "DESC");
         EventoDAO eventoDao = new EventoDAO(getBaseContext());
         adapterEventos = new ArrayAdapter<Eventos>(MainActivity.this,
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         listViewEventos.setAdapter(adapterEventos);
     }
 
-    public void onClickAscendente(View v) {
+    public void onClickAsc(View v) {
         listaQuery.set(2, "ASC");
         EventoDAO eventoDao = new EventoDAO(getBaseContext());
         adapterEventos = new ArrayAdapter<Eventos>(MainActivity.this,
@@ -167,14 +166,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void onClickNovoEvento(View v) {
-        Intent intent = new Intent(MainActivity.this, CadastrarEventoActivity.class);
-        startActivity(intent);
+    public void onClickNewEvent(View v) {
+        startActivity(new Intent(MainActivity.this, CadastrarEventoActivity.class));
     }
 
-    public void onClickLocal(View v) {
-        Intent intent = new Intent(MainActivity.this, CadastroDeLocaisActivity.class);
-        startActivity(intent);
-        finish();
+    public void onClickNewLocal(View v) {
+        startActivity(new Intent(MainActivity.this, ListaDeLocaisActivity.class));
+        /*finish();*/
     }
 }

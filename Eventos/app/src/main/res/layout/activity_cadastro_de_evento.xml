@@ -7,43 +7,46 @@
     android:orientation="vertical"
     tools:context=".ui.activity.CadastrarEventoActivity">
 
+    <ImageButton
+        android:id="@+id/btn_decrescente"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#D0CECE"
+        android:onClick="onClickVoltar"
+        app:srcCompat="@drawable/abc_vector_test" />
+
     <TextView
         android:id="@+id/text_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Nome" />
 
     <EditText
-        android:id="@+id/field_nome"
+        android:id="@+id/name_cadastroEvento_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/text_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Data" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/show_data"
-            android:layout_width="wrap_content"
+            android:id="@+id/text_data"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:text="Data" />
 
-        <Button
-            android:id="@+id/btn_data"
-            android:layout_width="20dp"
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Selecionar data"
-            android:textSize="10sp" />
+            android:ems="10"
+            android:inputType="date" />
+
     </LinearLayout>
 
     <TextView
@@ -60,29 +63,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_voltar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="#E8E44E"
             android:onClick="onClickVoltar"
             android:text="Voltar" />
 
         <Button
             android:id="@+id/btn_excluir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#F85252"
             android:onClick="onClickExcluir"
             android:text="Excluir" />
 
         <Button
             android:id="@+id/btn_salvar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#00B050"
             android:onClick="onClickSalvar"
             android:text="Salvar" />
 

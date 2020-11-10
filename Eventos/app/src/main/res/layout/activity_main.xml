@@ -12,10 +12,10 @@
         android:id="@+id/textView_pesquisa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NOME:" />
+        android:text="NAME:" />
 
     <EditText
-        android:id="@+id/editText_pesquisa_nome"
+        android:id="@+id/editText_main_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -26,46 +26,47 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CIDADE:" />
+        android:text="CITY:" />
 
     <Spinner
-        android:id="@+id/spinner_cidade"
+        android:id="@+id/spinner_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView_ordenar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ORDENAR:" />
+            android:text="ORDER:" />
 
         <ImageButton
-            android:id="@+id/btn_descendente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onClickAscendente"
-            app:srcCompat="@android:drawable/arrow_down_float" />
+            android:id="@+id/btn_decrescente"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#D0CECE"
+            android:onClick="onClickDesc"
+            app:srcCompat="@drawable/ic_action_novo_evento" />
 
         <ImageButton
             android:id="@+id/btn_ascedente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onClickDescendente"
-            app:srcCompat="@android:drawable/arrow_up_float" />
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="#D0CECE"
+            android:onClick="onClickAsc"
+            android:src="@android:drawable/divider_horizontal_textfield" />
     </LinearLayout>
 
     <ListView
-        android:id="@+id/list_view_eventos"
+        android:id="@+id/list_view_eventos_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="200dp">
 
     </ListView>
 
@@ -73,13 +74,16 @@
         android:id="@+id/btn_novo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickNovoEvento"
-        android:text="Novo Evento" />
+        android:background="#00B050"
+        android:onClick="onClickNewEvent"
+        android:text="NEW EVENT" />
 
     <Button
         android:id="@+id/btn_local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickLocal"
-        android:text="Locais" />
+        android:layout_marginTop="15dp"
+        android:background="#00B0F0"
+        android:onClick="onClickNewLocal"
+        android:text="LOCAL" />
 </LinearLayout>
