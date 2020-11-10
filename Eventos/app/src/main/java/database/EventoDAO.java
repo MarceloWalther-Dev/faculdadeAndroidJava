@@ -27,23 +27,35 @@ public class EventoDAO {
     }
 
     public boolean salvar (Eventos eventos){
-
         ContentValues contentValues = new ContentValues();
         contentValues.put(EventoEntity.COLUMN_NAME_NOME, eventos.getNomeDoEvento());
         contentValues.put(EventoEntity.COLUMN_NAME_DATA, eventos.getDataDoEvento());
-
         contentValues.put(EventoEntity.COLUMN_NAME_ID_LOCAL, eventos.getLocalDoEvento().getId());
 
         if(eventos.getId() > 0){
-            return dbGateway.getDatabase().update(EventoEntity.TABLE_NAME, contentValues, EventoEntity._ID + "=?" , new String[]{String.valueOf(eventos.getId())}) > 0;
+            return dbGateway.getDatabase().update(EventoEntity.TABLE_NAME,
+                    contentValues,
+                    EventoEntity._ID + "=?" ,
+                    new String[]{String.valueOf(eventos.getId())}) > 0;
         }
         return dbGateway.getDatabase().insert(EventoEntity.TABLE_NAME, null, contentValues)> 0;
     }
 
-    public List<Eventos> listar(){
+    public List<Eventos> listar(List<String> listaQuery){
+        String queryBanco = SQL_LISTAR_TODOS;
+        if(!listaQuery.get(0).equals("") && listaQuery.get(1).equals("")){
+            queryBanco = queryBanco + " WHERE " + EventoEntity.COLUMN_NAME_NOME + " LIKE '" +
+                    listaQuery.get(0) + "%'";
+        }else if( listaQuery.get(0).equals("") && !listaQuery.get(1).equals("")){
+            queryBanco = queryBanco + " WHERE " + LocalEntity.COLUMN_NAME_CITY + " = '" +
+                    listaQuery.get(1) + "'";
+        }else if (!listaQuery.get(0).equals("") && !listaQuery.get(1).equals("")){
+            queryBanco = queryBanco + " WHERE " + EventoEntity.COLUMN_NAME_NOME + " LIKE '" +
+                    listaQuery.get(0) + "%' AND " + LocalEntity.COLUMN_NAME_CITY + " = '" + listaQuery.get(1) + "'";
+        }
 
         List<Eventos> eventos = new ArrayList<>();
-        Cursor cursor = dbGateway.getDatabase().rawQuery(SQL_LISTAR_TODOS, null);
+        Cursor cursor = dbGateway.getDatabase().rawQuery(queryBanco + " ORDER BY " + EventoEntity.COLUMN_NAME_NOME + " COLLATE NOCASE " + listaQuery.get(2), null);
 
         while (cursor.moveToNext()){
             int id = cursor.getInt(cursor.getColumnIndex(EventoEntity._ID));

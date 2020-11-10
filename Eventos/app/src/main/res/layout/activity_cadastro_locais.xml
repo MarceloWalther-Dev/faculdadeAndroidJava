@@ -5,71 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CadastroDeEventos">
+    tools:context=".ui.activity.CadastroDeLocaisActivity">
 
     <TextView
-        android:id="@+id/editText_clubName"
+        android:id="@+id/textView_local_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Nome do Club:" />
+        android:text="Nome" />
 
     <EditText
-        android:id="@+id/editTextTextclubName"
+        android:id="@+id/editTextText_local_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_marginTop="8dp"
-        android:hint="Digite o nome do club. Ex: P12, Bokarras"
+        android:hint="Nome do local"
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView_local_bairro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Bairro:" />
+        android:text="Bairro" />
 
     <EditText
-        android:id="@+id/editTextText_bairro"
+        android:id="@+id/editText_local_bairro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Jurere Internacional"
+        android:hint="Bairro"
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView_local_cidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Cidade:" />
+        android:text="Cidade" />
 
     <EditText
-        android:id="@+id/editTextText_city"
+        android:id="@+id/editText_local_cidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Florianopolis"
+        android:hint="Cidade"
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView_local_capacidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Capacidade de publico:" />
+        android:text="Capacidade" />
 
     <EditText
-        android:id="@+id/editText_capacidadePublico"
+        android:id="@+id/editText_local_capacidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="200"
-        android:inputType="numberSigned" />
+        android:hint="Capacidade"
+        android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,20 +69,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_voltar"
+            android:id="@+id/btn_local_voltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClickVoltar"
             android:text="Voltar" />
-
-        <Button
-            android:id="@+id/btn_salvar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="onClickSalvar"
-            android:text="Salvar" />
 
         <Button
             android:id="@+id/btn_excluir_local"
@@ -99,6 +83,14 @@
             android:layout_weight="1"
             android:onClick="onClickExcluir"
             android:text="Excluir" />
+
+        <Button
+            android:id="@+id/btn_local_salvar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClickSalvar"
+            android:text="Salvar" />
     </LinearLayout>
 
 </LinearLayout>

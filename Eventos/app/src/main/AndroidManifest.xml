@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.ListaDeLocaisActivity" />
         <activity android:name=".ui.activity.CadastroDeLocaisActivity" />
-        <activity android:name=".ui.activity.CadastroDeEventosActivity" />
-        <activity android:name=".ui.activity.ListaEventosActivity">
+        <activity android:name=".ui.activity.CadastrarEventoActivity"/>
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

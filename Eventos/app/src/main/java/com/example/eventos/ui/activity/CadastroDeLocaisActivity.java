@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.eventos.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import database.EventoDAO;
@@ -25,7 +26,14 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
     private EditText editTextCity;
     private EditText editTextCapacidadePublico;
     private EventoDAO eventoDao = new EventoDAO(getBaseContext());
-    private List<Eventos> eventos = eventoDao.listar();
+    private List<String> lista = new ArrayList<String>(){{
+        add("");
+        add("");
+        add("ASC");
+    }};
+
+
+    private List<Eventos> eventos = eventoDao.listar(lista);
 
 
 
@@ -34,10 +42,10 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_de_locais);
         setTitle("Cadastro de Clubs");
-        editTextClubName = findViewById(R.id.editTextTextclubName);
-        editTextBairro = findViewById(R.id.editTextText_bairro);
-        editTextCity = findViewById(R.id.editTextText_city);
-        editTextCapacidadePublico = findViewById(R.id.editText_capacidadePublico);
+        editTextClubName = findViewById(R.id.editTextText_local_nome);
+        editTextBairro = findViewById(R.id.editText_local_bairro);
+        editTextCity = findViewById(R.id.editText_local_cidade);
+        editTextCapacidadePublico = findViewById(R.id.editText_local_capacidade);
         carregarLocal();
     }
 
