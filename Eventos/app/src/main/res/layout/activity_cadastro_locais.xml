@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/textView_local_nome"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nome" />
@@ -70,22 +71,31 @@
 
         <Button
             android:id="@+id/btn_local_voltar"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#E8E44E"
             android:onClick="onClickVoltar"
             android:text="Voltar" />
 
         <Button
             android:id="@+id/btn_excluir_local"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#F85252"
             android:onClick="onClickExcluir"
             android:text="Excluir" />
 
         <Button
             android:id="@+id/btn_local_salvar"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#00B050"
             android:onClick="onClickSalvar"
             android:text="Salvar" />
     </LinearLayout>

@@ -66,11 +66,9 @@ public class LocalEvento implements Serializable {
 
     @Override
     public String toString() {
-        return "LocalEvento{" +
-                ", nome='" + nome + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", capacidadePublico=" + capacidadePublico +
-                '}';
+        return  nome + '\'' + " " +
+                 bairro + '\'' + " " +
+                 cidade + '\'' + " " +
+                 capacidadePublico ;
     }
 }

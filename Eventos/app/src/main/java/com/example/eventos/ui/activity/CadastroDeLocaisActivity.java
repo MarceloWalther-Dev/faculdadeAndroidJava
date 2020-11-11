@@ -40,7 +40,7 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_de_locais);
+        setContentView(R.layout.activity_cadastro_locais);
         setTitle("Registros de Clubs");
         editTextClubName = findViewById(R.id.editTextText_local_name);
         editTextBairro = findViewById(R.id.editText_local_neighborhood);

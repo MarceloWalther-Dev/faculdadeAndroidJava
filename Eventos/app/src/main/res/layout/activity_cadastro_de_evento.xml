@@ -66,26 +66,21 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_voltar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:background="#E8E44E"
-            android:onClick="onClickVoltar"
-            android:text="Voltar" />
-
-        <Button
             android:id="@+id/btn_excluir"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="300dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
             android:background="#F85252"
             android:onClick="onClickExcluir"
             android:text="Excluir" />
 
         <Button
             android:id="@+id/btn_salvar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="15dp"
             android:background="#00B050"
             android:onClick="onClickSalvar"
             android:text="Salvar" />

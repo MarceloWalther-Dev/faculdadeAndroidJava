@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickNewLocal(View v) {
-        startActivity(new Intent(MainActivity.this, ListaDeLocaisActivity.class));
+        startActivity(new Intent(MainActivity.this, CadastroDeLocaisActivity.class));
         /*finish();*/
     }
 }
